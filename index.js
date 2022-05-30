@@ -6,6 +6,9 @@ const Offerroutes = require("./routes/offer");
 const app = express();
 const cloudinary = require("cloudinary").v2;
 const isAuthentificated = require("./middleware/isAuthentificated");
+const cors = require("cors");
+app.use(cors());
+require("dotenv").config();
 app.use(formidable());
 app.use(Offerroutes);
 app.use(Userroutes);
@@ -18,7 +21,7 @@ cloudinary.config({
     api_secret: "2rJFkI3QsCa8b9wdEJp51q3KxQI",
 });
 
-app.listen(3000, () => console.log("Server started"));
+app.listen(process.env.PORT, () => console.log("Server started"));
 
 app.all("*", (req, res) => {
     res.status(404).send("Page introuvable");
