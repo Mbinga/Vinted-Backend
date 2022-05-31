@@ -13,12 +13,12 @@ app.use(formidable());
 app.use(Offerroutes);
 app.use(Userroutes);
 
-mongoose.connect("mongodb://localhost:27017/Vinted_Authentification");
+mongoose.connect(process.env.MONGODB_URI);
 
 cloudinary.config({
-    cloud_name: "dmxaqz1mf",
-    api_key: "824198692566523",
-    api_secret: "2rJFkI3QsCa8b9wdEJp51q3KxQI",
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 app.listen(process.env.PORT, () => console.log("Server started"));

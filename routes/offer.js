@@ -7,7 +7,7 @@ router.use(formidable());
 const isAuthentificated = require("../middleware/isAuthentificated");
 const cloudinary = require("cloudinary").v2;
 
-//Route qui permet de publier une annonce, en checkant si le bon utilisateur est loggué à l'aide du'n middleware.
+//Route qui permet de publier une annonce, en checkant si le bon utilisateur est loggué à l'aide d'un middleware.
 
 router.post("/offer/publish", isAuthentificated, async (req, res) => {
     try {
